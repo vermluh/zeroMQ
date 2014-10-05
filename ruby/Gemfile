@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+gem 'awesome_print', '~>1.2.0'
+gem 'ffi-rzmq', '~>2.0.1'
+gem 'rake', '~>10.1.0'
