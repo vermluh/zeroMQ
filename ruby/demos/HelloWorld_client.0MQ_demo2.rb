@@ -1,26 +1,24 @@
 #encoding: utf-8
 
-require 'bundler/setup'
-
 require 'awesome_print'
 require 'benchmark'
 require 'ffi-rzmq'
 
-context = ZMQ::Context.new(1)
+context = ZMQ::Context.new
 
 ap "Connecting to hello world server..."
-@requester = context.socket(ZMQ::REQ)
-@requester.connect "tcp://localhost:5555"
-#@requester.connect "ipc:///tmp/zeroHW"
+@requester = context.socket(:REQ)
+#@requester.connect "tcp://localhost:5555"
+@requester.connect "ipc:///tmp/zeroHW"
 
-@count = 10000
+@count = 100000
 def exec_demo()
   1.upto @count do |request_nbr|
 #    ap "Sending request #{request_nbr}..."
-    @requester.send_string "Hello"
+    @requester.send "Hello"
   
     reply = ''
-    rc = @requester.recv_string reply
+    reply = @requester.recv
   
 #    ap "Received reply #{request_nbr}: [#{reply}]"
   end

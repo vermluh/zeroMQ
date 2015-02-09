@@ -4,7 +4,7 @@ require 'bundler/setup'
 require 'awesome_print'
 require 'ffi-rzmq'
 
-context = ZMQ::Context.new(1)
+context = ZMQ::Context.new
 publisher = context.socket(ZMQ::PUB)
 publisher.bind "tcp://*:5556"
 
