@@ -2,17 +2,16 @@ GEM
   remote: https://rubygems.org/
   specs:
     awesome_print (1.2.0)
-    ffi (1.9.5)
-    ffi-rzmq (2.0.1)
-      ffi-rzmq-core (>= 1.0.1)
-    ffi-rzmq-core (1.0.3)
-      ffi (~> 1.9)
     rake (10.1.1)
+    rbczmq (1.7.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   awesome_print (~> 1.2.0)
-  ffi-rzmq (~> 2.0.1)
   rake (~> 10.1.0)
+  rbczmq
+
+BUNDLED WITH
+   1.10.1
