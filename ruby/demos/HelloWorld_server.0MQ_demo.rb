@@ -5,15 +5,16 @@ require 'zmq'
 
 context = ZMQ::Context.new
 
-ap "Starting hello world server..."
+ap "Starting hello world srv..."
 responder = context.socket(ZMQ::REP)
 #responder.bind "tcp://*:5555"
-responder.bind "ipc:///tmp/zeroHW"
+responder.bind "tcp://10.10.55.54:5555"
+#responder.bind "ipc:///tmp/zeroHW"
 
 loop do
   request = responder.recv()
 
-#  ap "received Hello"
+#  puts "received #{request}"
 #  sleep(1)
   responder.send "World"
 end
